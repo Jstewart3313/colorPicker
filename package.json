@@ -1,0 +1,24 @@
+{
+  "name": "colorpicker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jstewart3313/colorPicker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jstewart3313/colorPicker/issues"
+  },
+  "homepage": "https://github.com/Jstewart3313/colorPicker#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
