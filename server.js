@@ -17,4 +17,4 @@ app.get('/api/v1/colors', (request, response) => {
 
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on ${app.get('port')}`);
-});
+});;
