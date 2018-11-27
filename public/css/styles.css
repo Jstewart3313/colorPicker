@@ -4,10 +4,41 @@
 
 body {
   font-family: 'Dosis', sans-serif;
-
 }
 
 h1 {
   background-color: peru;
   font-family: 'Sedgwick Ave', cursive;
+}
+
+main {
+  display: grid;
+  grid-template-areas: 
+  'a b c d e';
+}
+
+.a {
+  grid-area: a;
+  background-color: blue;
+  height: 500px;
+}
+
+.b {
+  grid-area: b;
+  background-color: green;
+}
+
+.c {
+  grid-area: c;
+  background-color: cornflowerblue;
+}
+
+.d {
+  grid-area: d;
+  background-color: wheat;
+}
+
+.e {
+  grid-area: e;
+  background-color: chocolate;
 }
