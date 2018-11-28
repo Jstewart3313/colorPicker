@@ -11,8 +11,21 @@ header {
   justify-content: center;
 }
 
+nav {
+  display: flex;
+  justify-content: center;
+
+}
+
+.nav-button {
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
 h1 {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Dosis', sans-serif;  
+  margin: 0px;
 }
 
 main {
@@ -25,7 +38,7 @@ main {
 .a {
   grid-area: a;
   background-color: blue;
-  height: 400px;
+  height: 350px;
 }
 
 .b {
@@ -55,6 +68,11 @@ main {
 .project-header {
   display: flex;
   justify-content:center;
+}
+
+.project-name-input {
+  background-color: white;
+  border-radius: 10px
 }
 
 .lock {
