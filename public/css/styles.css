@@ -6,21 +6,39 @@ body {
   font-family: 'Dosis', sans-serif;
 }
 
+header {
+  display: flex;
+  justify-content: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+
+}
+
+.nav-button {
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
 h1 {
-  background-color: peru;
-  font-family: 'Sedgwick Ave', cursive;
+  font-family: 'Dosis', sans-serif;  
+  margin: 0px;
 }
 
 main {
   display: grid;
   grid-template-areas: 
   'a b c d e';
+  grid-gap: 10px;
 }
 
 .a {
   grid-area: a;
   background-color: blue;
-  height: 500px;
+  height: 350px;
 }
 
 .b {
@@ -41,4 +59,23 @@ main {
 .e {
   grid-area: e;
   background-color: chocolate;
+}
+
+.color {
+  border-radius: 10px;
+}
+
+.project-header {
+  display: flex;
+  justify-content:center;
+}
+
+.project-name-input {
+  background-color: white;
+  border-radius: 10px
+}
+
+.lock {
+  height: 100px;
+  background-color: darkgray;
 }
