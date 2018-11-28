@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 
 app.locals.palettes = [];
-app.locals.projects = [{ name: 'house', }];
+app.locals.projects = [];
 
 app.use( bodyParser.json() );
 app.use(express.static('public'));
