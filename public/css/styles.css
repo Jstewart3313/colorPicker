@@ -6,21 +6,26 @@ body {
   font-family: 'Dosis', sans-serif;
 }
 
+header {
+  display: flex;
+  justify-content: center;
+}
+
 h1 {
-  background-color: peru;
-  font-family: 'Sedgwick Ave', cursive;
+  font-family: 'Dosis', sans-serif;
 }
 
 main {
   display: grid;
   grid-template-areas: 
   'a b c d e';
+  grid-gap: 10px;
 }
 
 .a {
   grid-area: a;
   background-color: blue;
-  height: 500px;
+  height: 400px;
 }
 
 .b {
@@ -41,4 +46,18 @@ main {
 .e {
   grid-area: e;
   background-color: chocolate;
+}
+
+.color {
+  border-radius: 10px;
+}
+
+.project-header {
+  display: flex;
+  justify-content:center;
+}
+
+.lock {
+  height: 100px;
+  background-color: darkgray;
 }
