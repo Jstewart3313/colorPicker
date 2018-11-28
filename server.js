@@ -6,16 +6,12 @@ app.locals.palettes = [];
 app.locals.projects = [{ name: 'house', }];
 
 app.use( bodyParser.json() );
-
 app.use(express.static('public'));
-
 app.locals.title = 'Painters Palette';
-
 app.set('port', process.env.PORT || 3000);
 
 app.get('/api/va/palettes', (request, repsonse) => {
   const palettes = app.locals.palettes
-
   return response.status(200).json(palettes)
 })
 
@@ -31,7 +27,7 @@ app.get('/api/v1/projects', (request, response) => {
 
 app.get('/api/v1/project/:id', (request, response) => {
   const { id } = request.params;
-  const project = app.locals.pets.find(project => project.id === id);
+  const project = app.locals.projects.find(project => project.id === id);
   if (project) {
     return response.status(200).json(project);
   } else {
