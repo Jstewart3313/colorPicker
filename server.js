@@ -49,6 +49,11 @@ app.post('/api/v1/projects', (request, response) => {
   }
 })
 
+app.get('/api/v1/project/:project_id/palettes/', (request, response) => {
+  database('palettes').where('project_id', request.params.project_id).select()
+    .then(palettes)
+})
+
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on ${app.get('port')}`);
 });

@@ -61,6 +61,30 @@ main {
   background-color: chocolate;
 }
 
+.unlock {
+  height: 20px;
+  width: 100%;
+  display: flex;
+  background-image: url(../assets/unlocked.svg);
+  background-repeat: no-repeat;
+  justify-content: center;
+}
+
+.lock {
+  height: 20px;
+  width: 100%;
+  display: flex;
+  background-image: url(../assets/locked.svg);
+  background-repeat: no-repeat;
+  justify-content: center;
+}
+
+
+img {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .color {
   border-radius: 10px;
 }
@@ -73,9 +97,4 @@ main {
 .project-name-input {
   background-color: white;
   border-radius: 10px
-}
-
-.lock {
-  height: 100px;
-  background-color: darkgray;
 }
