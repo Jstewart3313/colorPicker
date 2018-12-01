@@ -9,7 +9,11 @@
   </head>
   <body>
     <header class="header"><h1>Painters Palette</h1></header>
-    <nav><button class="nav-button">Mix Paint</button></nav>
+    <nav>
+      <button class="nav-button">Mix Paint</button>
+      <input class="project-name-input" type="text" />
+      <button class='project-create-button'> Save Project </button>
+    </nav>
     <main class="palette">
       <section class=" hex1 color a 1">
         <button class="unlock">Click to Lock</button>
@@ -28,12 +32,16 @@
       </section>
     </main>
     <section class="projects-section">
-      <section class="project-header"><h2>Projects</h2></section>
-      <section class="projects">
-        <input class="project-name-input" type="text" /><button>
-          Save Project
-        </button>
+      <section class="project-header">
+        <h2>Projects</h2>
       </section>
+      <label for="project-select">Choose a project:</label>
+      <select id="project-select">
+          <option value="">--Please choose a project--</option>
+      </select>
+      <button class='save-palette'>Save this Palette</button>
+      <ul class="projects">
+      </ul>
     </section>
     <script src="/js/scripts.js"></script>
   </body>
