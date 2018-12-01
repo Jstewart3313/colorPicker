@@ -61,7 +61,7 @@ app.get("/api/v1/project/:id", (request, response) => {
 });
 
 app.post("/api/v1/projects", (request, response) => {
-  const { project } = request.body;
+  const  project  = request.body;
   for (let requiredParameter of ["title"]) {
     if (!project[requiredparameter]) {
       return response
@@ -72,8 +72,8 @@ app.post("/api/v1/projects", (request, response) => {
 
   database("projects")
     .insert(project, "id")
-    .then(project => {
-      response.status(201).json({ id: projects[0] });
+    .then(currentProj => {
+      response.status(201).json({ id: currentProj[0] });
     })
     .catch(error => {
       response.status(500).json({ error });
