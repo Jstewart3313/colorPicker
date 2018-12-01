@@ -66,7 +66,6 @@ const deleteProject = event => {
 const saveProject = () => {
   let name = $(".project-name-input").val();
   let projectName = `<li class='list-name'><p class='project-name'> ${name} </p></li>`;
-
   $(".projects").append(projectName);
   postProjectToDB(name)
 };
@@ -110,10 +109,17 @@ const clearProjectInput = () => {
   let projectInput = $(".project-name-input").val("");
 };
 
-const postProjectToDB = async (projectname) => {
-  const response = await fetch('/api/v1/projects')
+const postProjectToDB = async (projectName) => {
+  const response = await fetch('/api/v1/projects', {
+    method: 'POST',
+    mode: 'cors',
+    credentials: 'same-origin',
+    body: JSON.stringify(projectName),
+    headers:{
+      'Content-Type': 'application/json; charset=utf-8'
+    }
+  })
   const data = await response.json();
-  console.log(data)
 }
 
 $(".project-create-button").click(() => {
