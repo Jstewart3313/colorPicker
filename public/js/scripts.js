@@ -23,8 +23,6 @@ const generateRandomHex = () => {
   return hex;
 };
 
-
-
 let visualHex1 = generateRandomHex();
 let visualHex2 = generateRandomHex();
 let visualHex3 = generateRandomHex();
@@ -36,6 +34,14 @@ $(".b").css("background-color", visualHex2);
 $(".c").css("background-color", visualHex3);
 $(".d").css("background-color", visualHex4);
 $(".e").css("background-color", visualHex5);
+
+$(".a").append(visualHex1);
+$(".b").append(visualHex2);
+$(".c").append(visualHex3);
+$(".d").append(visualHex4);
+$(".e").append(visualHex5);
+
+
 
 const toggleLock = event => {
   let lockButton = $(event.target);
@@ -106,20 +112,25 @@ const saveToDropDown = () => {
 };
 
 const clearProjectInput = () => {
-  let projectInput = $(".project-name-input").val("");
+  $(".project-name-input").val("");
 };
 
 const postProjectToDB = async (projectName) => {
+  try {
   const response = await fetch('/api/v1/projects', {
     method: 'POST',
     mode: 'cors',
     credentials: 'same-origin',
-    body: JSON.stringify(projectName),
+    body: JSON.stringify({title: projectName}),
     headers:{
       'Content-Type': 'application/json; charset=utf-8'
     }
   })
   const data = await response.json();
+  console.log(data)
+} catch(e) {
+  throw new Error('something went wrong')
+}
 }
 
 $(".project-create-button").click(() => {
@@ -132,7 +143,7 @@ $(".projects").click(() => {
   deleteProject(event);
 });
 
-$(".nav-button").click(() => {
+$(".mix-button").click(() => {
   generateColors(event);
 });
 
