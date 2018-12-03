@@ -25,8 +25,8 @@ nav {
 }
 
 .project-create-button {
-  margin: 0px 0px 5px 10px;
   border-radius: 5px;
+  margin: 0px 0px 5px 10px;
 }
 
 h1 {
@@ -41,51 +41,53 @@ main {
 }
 
 .a {
-  grid-area: a;
   background-color: #000000;
+  grid-area: a;
   height: 350px;
 }
 
 .b {
-  grid-area: b;
   background-color: #000000;
+  grid-area: b;
 }
 
 .c {
-  grid-area: c;
   background-color: #000000;
+  grid-area: c;
 }
 
 .d {
-  grid-area: d;
   background-color: #000000;
+  grid-area: d;
 }
 
 .e {
-  grid-area: e;
   background-color: #000000;
+  grid-area: e;
 }
 
 .unlock {
-  height: 20px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
   background-image: url(../assets/unlocked.svg);
-  background-repeat: no-repeat;
   background-color: transparent;
+  background-repeat: no-repeat;
   background-position: center;
   border: none;
+  display: flex;
+  height: 20px;
   justify-content: center;
+  justify-content: center;
+  width: 100%;
 }
 
+button:focus {outline:0;}
+
 .lock {
-  height: 20px;
-  width: 100%;
-  display: flex;
   background-image: url(../assets/locked.svg);
   background-repeat: no-repeat;
+  display: flex;
+  height: 20px;
   justify-content: center;
+  width: 100%;
 }
 
 img {
@@ -94,11 +96,12 @@ img {
 }
 
 .color {
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  border-radius: 10px;
+  box-shadow: 2px 2px 20px 0px grey;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .project-header {
@@ -109,6 +112,24 @@ img {
 .project-name-input {
   background-color: white;
   border-radius: 10px;
+  border: none;
+}
+
+.save-palette {
+  margin: 0px 30px 0px 30px;
+  border-radius: 5px;
+}
+
+.palette-name-input { 
+  border-radius: 5px;
+  border: none;
+}
+
+.projects-form {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .project-name {
@@ -116,43 +137,62 @@ img {
 }
 
 .trash-btn {
-  display: inline;
   background-image: url(../assets/waste-bin.svg);
   background-repeat: no-repeat;
+  background-color: transparent;
+  display: inline;
   height: 20px;
 }
 
+ul {
+  list-style-type: none;
+}
+
+.palette-name-DOM {
+  margin-right: 15px
+}
+
+.label {
+  margin-right: 15px
+}
+
+.swatch-name {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+
 .swatch1 {
+  background-color: transparent;
   display: inline-block;
   height: 15px;
-  background-color: transparent;
   width: 15px;
 }
 
 .swatch2 {
+  background-color: transparent;
   display: inline-block;
   height: 15px;
-  background-color: transparent;
   width: 15px;
 }
 
 .swatch3 {
+  background-color: transparent;
   display: inline-block;
   height: 15px;
-  background-color: transparent;
   width: 15px;
 }
 
 .swatch4 {
+  background-color: transparent;
   display: inline-block;
   height: 15px;
-  background-color: transparent;
   width: 15px;
 }
 
 .swatch5 {
+  background-color: transparent;
   display: inline-block;
   height: 15px;
-  background-color: transparent;
   width: 15px;
 }

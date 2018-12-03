@@ -27,7 +27,8 @@ app.post("/api/v1/palettes", (request, response) => {
     "hex2",
     "hex3",
     "hex4",
-    "hex5"
+    "hex5",
+    "project_id"
   ]) {
     if (!palette[requiredParameter]) {
       return response.status(422).send({ error: "expected different params" });
@@ -36,7 +37,7 @@ app.post("/api/v1/palettes", (request, response) => {
   database("palettes")
     .insert(palette, "id")
     .then(palette => {
-      response.status(201).json({ id: pallete[0] });
+      response.status(201).json({ id: palette[0] });
     })
     .catch(error => {
       response.status(500).json({ error });
