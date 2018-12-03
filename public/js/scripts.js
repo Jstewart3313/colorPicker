@@ -41,8 +41,6 @@ $(".c").append(visualHex3);
 $(".d").append(visualHex4);
 $(".e").append(visualHex5);
 
-
-
 const toggleLock = event => {
   let lockButton = $(event.target);
   let lockContainer = $(event.target.parentNode);
@@ -69,35 +67,28 @@ const deleteProject = event => {
   }
 };
 
-const saveProject = () => {
-  let name = $(".project-name-input").val();
-  let projectName = `<li class='list-name'><p class='project-name'> ${name} </p></li>`;
-  $(".projects").append(projectName);
-  postProjectToDB(name)
-};
-
 const savePalette = () => {
   $(".list-name").append(`
   <div class='project-swatches'>
     <div 
       class='swatch1' 
-      style="background-color:${$('.a').css('background-color')};">
+      style="background-color:${$(".a").css("background-color")};">
     </div>
     <div 
       class='swatch2' 
-      style="background-color:${$('.b').css('background-color')};">
+      style="background-color:${$(".b").css("background-color")};">
     </div>
     <div 
       class='swatch3' 
-      style="background-color:${$('.c').css('background-color')};">
+      style="background-color:${$(".c").css("background-color")};">
     </div>
     <div 
       class='swatch4' 
-      style="background-color:${$('.d').css('background-color')};">
+      style="background-color:${$(".d").css("background-color")};">
     </div>
     <div 
       class='swatch5' 
-      style="background-color:${$('.e').css('background-color')};">
+      style="background-color:${$(".e").css("background-color")};">
     </div><button class='trash-btn'></button>
   </div>`);
 };
@@ -106,36 +97,54 @@ $(".save-palette").click(() => {
   savePalette();
 });
 
-const saveToDropDown = () => {
-  const projectName = $(".project-name-input").val();
-  $("#project-select").append(`<option value="">${projectName}</option>`);
-};
-
+const ProjectFromDB = () => {};
 const clearProjectInput = () => {
   $(".project-name-input").val("");
 };
 
-const postProjectToDB = async (projectName) => {
+const saveProject = async id => {
   try {
-  const response = await fetch('/api/v1/projects', {
-    method: 'POST',
-    mode: 'cors',
-    credentials: 'same-origin',
-    body: JSON.stringify({title: projectName}),
-    headers:{
-      'Content-Type': 'application/json; charset=utf-8'
-    }
-  })
-  const data = await response.json();
-  console.log(data)
-} catch(e) {
-  throw new Error('something went wrong')
-}
-}
+    const response = await fetch(`/api/v1/projects/${id}`);
+    var projectData = await response.json();
+  } catch (e) {
+    throw new Error("something else went wrong");
+  }
+
+  projectData = projectData.reduce((acc, project) => {
+    acc = { ...project };
+
+    return acc;
+  }, {});
+  let projectName = `<li class='list-name'><p class='project-name'> ${
+    projectData.title
+  } </p></li>`;
+  $(".projects").append(projectName);
+
+  const projectTitle = $(".project-name-input").val();
+  $("#project-select").append(`<option value="" id='${projectData.id}'>${projectData.title}</option>`);
+};
+
+const postProjectToDB = async projectName => {
+  try {
+    const response = await fetch("/api/v1/projects", {
+      method: "POST",
+      mode: "cors",
+      credentials: "same-origin",
+      body: JSON.stringify({ title: projectName }),
+      headers: {
+        "Content-Type": "application/json; charset=utf-8"
+      }
+    });
+    var data = await response.json();
+  } catch (e) {
+    throw new Error("something went wrong");
+  }
+  saveProject(data.id);
+};
 
 $(".project-create-button").click(() => {
-  saveProject();
-  saveToDropDown();
+  let name = $(".project-name-input").val();
+  postProjectToDB(name);
   clearProjectInput();
 });
 
