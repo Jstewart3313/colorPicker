@@ -14,12 +14,19 @@ header {
 nav {
   display: flex;
   justify-content: center;
+  margin: 10px 0px 10px 0px;
 }
 
-.nav-button {
+.mix-button {
   background-color: white;
   border-radius: 5px;
-  margin-bottom: 5px;
+  height: 20px;
+  margin: 0px 10px 5px 0px;
+}
+
+.project-create-button {
+  margin: 0px 0px 5px 10px;
+  border-radius: 5px;
 }
 
 h1 {
@@ -63,8 +70,12 @@ main {
   height: 20px;
   width: 100%;
   display: flex;
+  justify-content: center;
   background-image: url(../assets/unlocked.svg);
   background-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  border: none;
   justify-content: center;
 }
 
@@ -84,6 +95,10 @@ img {
 
 .color {
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .project-header {

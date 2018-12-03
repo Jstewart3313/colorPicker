@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+const environment = process.env.NODE_ENV || "development";
+const configuration = require("./knexfile")[environment];
+const database = require("knex")(configuration);
 
 app.locals.palettes = [];
 app.locals.projects = [];
@@ -26,7 +29,7 @@ app.post("/api/v1/palettes", (request, response) => {
     "hex4",
     "hex5"
   ]) {
-    if (!palette[requiredparameter]) {
+    if (!palette[requiredParameter]) {
       return response.status(422).send({ error: "expected different params" });
     }
   }
@@ -45,9 +48,14 @@ app.get("/", (request, response) => {
 });
 
 app.get("/api/v1/projects", (request, response) => {
-  const projects = app.locals.projects;
-
-  return response.status(200).json(projects);
+  database("projects")
+    .select()
+    .then(projects => {
+      response.status(200).json(projects);
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+    });
 });
 
 app.get("/api/v1/project/:id", (request, response) => {
@@ -61,9 +69,9 @@ app.get("/api/v1/project/:id", (request, response) => {
 });
 
 app.post("/api/v1/projects", (request, response) => {
-  const  project  = request.body;
+  const project = request.body;
   for (let requiredParameter of ["title"]) {
-    if (!project[requiredparameter]) {
+    if (!project[requiredParameter]) {
       return response
         .status(422)
         .send({ error: "There was no Project to add!" });
