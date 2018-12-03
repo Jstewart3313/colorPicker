@@ -93,6 +93,8 @@ const savePalette = () => {
   </div>`);
 };
 
+
+
 $(".save-palette").click(() => {
   savePalette();
 });
@@ -115,13 +117,16 @@ const saveProject = async id => {
 
     return acc;
   }, {});
-  let projectName = `<li class='list-name'><p class='project-name'> ${
-    projectData.title
-  } </p></li>`;
+
+  let projectName = `<li class='list-name' id='${
+    projectData.id
+  }'><p class='project-name'> ${projectData.title} </p></li>`;
   $(".projects").append(projectName);
 
   const projectTitle = $(".project-name-input").val();
-  $("#project-select").append(`<option value="" id='${projectData.id}'>${projectData.title}</option>`);
+  $("#project-select").append(
+    `<option value="" id='${projectData.id}'>${projectData.title}</option>`
+  );
 };
 
 const postProjectToDB = async projectName => {

@@ -111,6 +111,17 @@ img {
   border-radius: 10px;
 }
 
+.save-palette {
+  margin: 0px 30px 0px 30px;
+}
+
+.projects-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .project-name {
   display: inline;
 }
